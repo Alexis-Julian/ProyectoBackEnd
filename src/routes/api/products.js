@@ -9,7 +9,7 @@ const CallProducts = async () => {
 };
 CallProducts();
 /* Methods  GET */
-app.get("/", (req, res) => {
+app.get("/product", (req, res) => {
   const { limit } = req.query;
   const products = ProductManager.products;
   if (limit) {
@@ -17,13 +17,13 @@ app.get("/", (req, res) => {
   }
   res.send(JSON.stringify(products));
 });
-app.get("/:pid", async (req, res) => {
+app.get("/product/:pid", async (req, res) => {
   const { pid } = req.params;
   res.send(await ProductManager.getProductById(parseInt(pid)));
 });
 /* Methods  POST */
 app.use(express.json());
-app.post("/", async (req, res) => {
+app.post("/product", async (req, res) => {
   const productadd = await req.body;
   const response = await ProductManager.addProduct(productadd);
   response
@@ -31,7 +31,7 @@ app.post("/", async (req, res) => {
     : res.status(404).send("Product failed to be added");
 });
 /* Methods PUT */
-app.put("/:pid", async (req, res) => {
+app.put("/product/:pid", async (req, res) => {
   const { pid } = req.params;
   const productupdate = await req.body;
   const correctly = await ProductManager.updateProduct(
@@ -43,7 +43,7 @@ app.put("/:pid", async (req, res) => {
     : res.status(404).send("Product updated incorrectly!");
 });
 /* Methods DELETE */
-app.delete("/:pid", async (req, res) => {
+app.delete("/product/:pid", async (req, res) => {
   const { pid } = req.params;
   const removed = await ProductManager.DeleteProduct(pid);
   removed
