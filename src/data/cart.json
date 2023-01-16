@@ -1,0 +1,12 @@
+[
+  { "cid": 0, "product": [] },
+  { "cid": 1, "product": [{ "id": 5, "quantity": 1 }] },
+  {
+    "cid": 2,
+    "product": [
+      { "id": 3, "quantity": 2 },
+      { "id": 5, "quantity": 3 }
+    ]
+  },
+  { "cid": 3, "product": [{ "id": 5, "quantity": 1 }] }
+]
