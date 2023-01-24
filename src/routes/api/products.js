@@ -1,13 +1,13 @@
 const express = require("express");
 const Manager = require("../../logic/ProductManager");
-const app = express.Router();
-
+export const app = express.Router();
 const ProductManager = new Manager("products");
-
+/* Functions Helpers */
 const CallProducts = async () => {
   await ProductManager.getProducts();
 };
 CallProducts();
+
 /* Methods  GET */
 app.get("/product", (req, res) => {
   const { limit } = req.query;
@@ -23,9 +23,11 @@ app.get("/product/:pid", async (req, res) => {
 });
 /* Methods  POST */
 app.use(express.json());
+
 app.post("/product", async (req, res) => {
   const productadd = await req.body;
   const response = await ProductManager.addProduct(productadd);
+  /*  DataPost(data) */
   response
     ? res.send("Product added successfully!")
     : res.status(404).send("Product failed to be added");
@@ -50,4 +52,3 @@ app.delete("/product/:pid", async (req, res) => {
     ? res.send("Product deleted successfully")
     : res.status(404).send("Product not found!");
 });
-module.exports = app;

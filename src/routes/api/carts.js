@@ -3,7 +3,7 @@ const Manager = require("../../logic/CartManager");
 const ManagerP = require("../../logic/ProductManager");
 const CartManager = new Manager("cart");
 const ProductManager = new ManagerP("products");
-const app = express.Router();
+export const app = express.Router();
 app.use(express.json());
 /* Methods POST */
 app.post("/cart", async (req, res) => {
@@ -43,4 +43,3 @@ app.get("/cart/:cid", async (req, res) => {
   const cart = await CartManager.searchCart(cid);
   cart ? res.send(cart.product) : res.send("Cart not found");
 });
-module.exports = app;

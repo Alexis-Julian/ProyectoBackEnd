@@ -1,11 +1,27 @@
-const express = require("express");
-const morgan = require("morgan");
-const RouteProduct = require("./routes/api/products");
-const RouteCart = require("./routes/api/carts");
-const app = express();
+/* Modules import */
+import app from "./app";
+const handlebars = require("express-handlebars");
+import http from "http";
+import { Server as ServerWebSocket } from "socket.io";
+import socket from "./socket";
+import middlewares from "./middlewares";
+import config from "./config";
 
-app.use(morgan("dev"));
-app.use(RouteCart);
-app.use(RouteProduct);
+/* Initialization  Http Server*/
+const httpServer = http.createServer(app);
 
-app.listen(8080);
+/* Socket */
+const io = new ServerWebSocket(httpServer);
+socket(io);
+
+/* Engine Template */
+app.engine("handlebars", handlebars.engine());
+
+/* Middlewares */
+middlewares(app);
+
+/* Config Server */
+config(app);
+
+httpServer.listen(8080);
+console.log("Server is running on port 8080");

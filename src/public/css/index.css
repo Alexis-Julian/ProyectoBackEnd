@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+/* SendProduct */
+.sendProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+input {
+  min-height: 30px;
+  min-width: 180px;
+  text-align: center;
+}
+.sendForm {
+  padding: 8px;
+  min-width: 100px;
+}
+/* ListProduct */
+.listProducts {
+  flex-grow: 1;
+}
