@@ -2,16 +2,16 @@
   <div class="sendProduct">
     <form id="SendProductForm">
       <input type="text" placeholder="Title" id="title" />
-      <input type="text" placeholder="Description" />
-      <input type="text" placeholder="Price" />
-      <input type="text" placeholder="Stock" />
-      <input type="text" placeholder="Code" />
-      <input type="text" placeholder="Category" />
+      <input type="text" placeholder="Description" id="description" />
+      <input type="text" placeholder="Price" id="price" />
+      <input type="text" placeholder="Stock" id="stock" />
+      <input type="text" placeholder="Code" id="code" />
+      <input type="text" placeholder="Category" id="category" />
       <button class="sendForm">Enviar</button>
     </form>
   </div>
   <div class="listProducts">
-    Productos
+    <ul id="listProducts"></ul>
   </div>
 </div>
 <script src="/socket.io/socket.io.min.js"></script>
