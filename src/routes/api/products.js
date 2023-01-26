@@ -1,5 +1,5 @@
-const express = require("express");
-const Manager = require("../../logic/ProductManager");
+import express from "express";
+import Manager from "../../logic/ProductManager.js";
 export const app = express.Router();
 const ProductManager = new Manager("products");
 /* Functions Helpers */

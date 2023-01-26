@@ -1,11 +1,11 @@
 /* Modules import */
-import app from "./app";
-const handlebars = require("express-handlebars");
+import app from "./app.js";
+import handlebars from "express-handlebars";
 import http from "http";
 import { Server as ServerWebSocket } from "socket.io";
-import socket from "./socket";
-import middlewares from "./middlewares";
-import config from "./config";
+import socket from "./socket.js";
+import middlewares from "./middlewares.js";
+import config from "./config.js";
 
 /* Initialization  Http Server*/
 const httpServer = http.createServer(app);

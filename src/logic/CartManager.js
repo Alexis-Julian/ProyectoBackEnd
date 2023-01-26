@@ -1,6 +1,10 @@
-const path = require("path");
-const fs = require("fs");
-class CartManager {
+import path from "path";
+import { fileURLToPath } from "url";
+import fs from "fs";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default class CartManager {
   constructor(archive) {
     this.cart = [];
     this.path = path.join(__dirname, `../data/${archive}.json`);
@@ -65,4 +69,3 @@ class CartManager {
     }
   }
 }
-module.exports = CartManager;

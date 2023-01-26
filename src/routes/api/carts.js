@@ -1,6 +1,6 @@
-const express = require("express");
-const Manager = require("../../logic/CartManager");
-const ManagerP = require("../../logic/ProductManager");
+import express from "express";
+import Manager from "../../logic/CartManager.js";
+import ManagerP from "../../logic/ProductManager.js";
 const CartManager = new Manager("cart");
 const ProductManager = new ManagerP("products");
 export const app = express.Router();

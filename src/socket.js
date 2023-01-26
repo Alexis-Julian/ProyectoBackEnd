@@ -1,4 +1,4 @@
-import ProductManager from "./logic/ProductManager";
+import ProductManager from "./logic/ProductManager.js";
 const ManagerProduct = new ProductManager("products");
 
 export default (io) => {

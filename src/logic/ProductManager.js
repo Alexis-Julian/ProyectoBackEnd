@@ -1,6 +1,9 @@
-const fs = require("fs");
-const path = require("path");
-class ProductManager {
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+export default class ProductManager {
   constructor(archive) {
     this.products = [];
     this.path = path.join(__dirname, `../data/${archive}.json`);
@@ -92,5 +95,3 @@ class ProductManager {
     }
   }
 }
-
-module.exports = ProductManager;
